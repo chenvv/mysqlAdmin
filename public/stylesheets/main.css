@@ -1,0 +1,117 @@
+table.list {
+background-color:#E5FFCC;
+font-size: 10pt; 
+}
+
+table.list th{
+border:1px solid #888888;
+padding-left:5px;
+padding-right:5px;
+text-align:center;
+background:#F0FFF0;
+}
+
+td.tr0 {
+background-color:#678197;
+border-bottom:1px solid #e5eff8;
+border-left:1px solid #e5eff8;
+padding:.3em 1em;
+text-align:center;
+}
+
+table.list td {
+border:1px solid #888888;
+padding-left:5px;
+padding-right:5px;
+text-align:center;
+background:#ffffff;
+font-size: 10pt; 
+}
+
+.short_text{
+width:50px;
+}
+
+.text_filed1{
+width:200px;
+}
+
+
+* {
+   margin:0;
+   padding:0;  /* 全てのプロパティの余白とパディングをリセットします。*/
+}
+.wrapper {
+   width: 100%;
+   margin: 0 auto;   /* 幅固定（700px）でセンタリングします。*/
+}
+.header {
+   width: 100%;
+   height: 8%;     /* サイトロゴの高さに合わせて調節して下さい。*/
+   background-color: #F9F9F9;
+}
+.main {
+   width: 100%;     /* メニューとコンテンツを囲んでいるクラスです。 */
+   height: 84%;
+}
+.menu {
+   float: left;
+   width: 12%;     /* floatの width 指定は必須です。*/
+   height: 100%;
+   overFlow: auto;
+   scrollBar-3dLight-color: orange;
+}
+.contents {
+   padding-left:0.5em;
+/*   float: center;   /* floatの width 指定は必須です。*/
+   height: 100%;    
+   width: auto;  
+   overFlow: auto ;
+}
+.footer {
+   float: right;      /* float をクリアしています。*/
+   width: 100%;
+   height: 6%;
+   background-color: #F9F9F9;
+}
+.menu ul {
+   list-style: none;
+}
+
+.center{
+  float: left;    
+  width: 3px;  
+  background-color: #d3d3d3;
+  height: 100%;
+}
+
+.menu_table {
+  padding-left:0.5em;
+  padding-right:0.5em;
+}
+
+.h {
+  border-top: #696969 3px outset;
+  width: 100%;  
+  height:2px;
+}
+
+.imageLink a {
+  margin:0.1em;
+}
+.imageLink a:link {
+  text-decoration:none;
+}
+
+.imageLink a:visited {
+  text-decoration:none;
+}
+
+.imageLink a:hover {
+  text-decoration:none;
+}
+
+img{    
+  border:10px 
+}
+

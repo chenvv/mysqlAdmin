@@ -1,0 +1,5 @@
+<%= form_tag :action => 'change_database' %>
+<%= select_tag "other_database" , options_for_select(@other_databases)  %>
+  <%= submit_tag 'Chage' %>
+  <div><%= button_to_function "close this area", "Element.update('other_databases_id', '')" %></div>
+</form>

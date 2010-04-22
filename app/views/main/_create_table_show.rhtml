@@ -1,0 +1,55 @@
+<div id = "New">
+</br>
+<div id='new_table'>
+<b>Table Name:</b> <%= text_field_tag "table_name" , nil ,:size => 50%>
+</br>
+</br>
+<table class="list">
+  <tr>
+   <% ["Column Name", "Datatype", "Length", "NOT NULL", "AUTO INC", "Default Value", "PrimaryKey", "ForeignKey"].each do |t| %>
+   <th> <b><%= t %></b>
+   </th>
+   <%   end %>
+  </tr>
+  <% 20.times do |n| %>    
+  <tr>
+    <td>
+    <%=  text_field_tag "column_name#{n}" %>
+    </td>
+    <td>
+    <%= select_tag "datatype#{n}", "<option>VARCHAR</option><option>DECIMAL</option><option>DATE</option><option>INT</option>
+    <option>TEXT</option><option>TIMESTAMP</option><option>ENUM</option>" %>
+
+    </td>
+    <td>
+    <%= text_field_tag "length#{n}" , '',  :size => 7 %>
+    </td>
+    <td>
+    <%= check_box_tag "not_null#{n}" %>
+    </td>
+    <td>
+    <%= check_box_tag "auto_inc#{n}" %>
+    </td>     
+    <td>
+    <%= text_field_tag "default_value#{n}" %>
+    </td>
+    <td>
+    <%= check_box_tag "primary#{n}" %>
+    </td>           
+    <td>
+    <%= check_box_tag "foreign_key#{n}" %>Ref. Table:<%= text_field_tag "ref_table#{n}" %>
+    </td>     
+    </tr>
+ <% end %>   
+</table>
+</div>
+</br>
+<div>
+<!-- ※Please input like "Table_name(column_name)" when you input the "ForeignKey text_field"!<br /> -->
+<%= link_to_remote "Create", :submit => "new_table", :update=>"result", :url=>{:action => "create_table" }%>
+</div>
+<div style="font: 12px;color:#FF4500"><%= @error_message %></div>
+<div></div>
+</div>
+
+<div id ="result"></div>

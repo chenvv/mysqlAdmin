@@ -1,0 +1,27 @@
+<div id="view">
+<% if action = 'table_show'%>    
+<div style="height:1.7em"><strong>Table Name : </strong><%= @table_nm%></div>    
+<% end %>
+<% @table_header1 = @table_header1 || [] %>
+<% @table_header2 = @table_header2 || [] %>
+<table class="list">
+   <% [@table_header1,@table_header2].each do |header| %>
+   <tr>
+     <% header.each do |h| -%>
+     <th><strong><%= nbsp_in_blank(h) %></strong></th>
+     <% end %>
+   </tr>
+   <% end %>
+   <% (@table_contents || []).each do |row|  %>
+   <tr>
+   <%   row.each do |c| -%>
+   <td style="border:1px solid #888888;padding-left:5px;padding-right:5px;"><%= nbsp_in_blank(c) -%></td>
+   <% end %>
+   </tr>
+   <% end %>
+</table> 
+
+<%= pagination_links_for_list_with_ajax @result_pages, {:update => 'view', 
+                                                        :url => { :action => action, :query_sql => query_sql,
+                                                                  :params => @params_for_paginate.update(params.delete_if{|k, v| k == 'page'}) }} %>
+</div>

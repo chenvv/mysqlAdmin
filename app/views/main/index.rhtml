@@ -1,0 +1,57 @@
+<style>
+<!--
+a:link       { text-decoration: none; color: #000000; font-size: 10pt; }
+a:visited    { text-decoration: none; color: #000000; font-size: 10pt; }
+a:hover      { text-decoration: underline; color: #6e6e6e; font-size: 10pt; background-color:#E5FFCC;}
+a:active     { text-decoration: none; color: #000000; font-size: 10pt; }
+-->
+</style>
+<%= javascript_include_tag :defaults%>
+
+<div class="wrapper">
+  <div class="header">
+       <strong><font face="MS Reference Sans Serif" size="5" color="#186D92">&nbsp;My</font><font face="MS Reference Sans Serif" size="5" color="#FF9900">SQL</font>
+       <font face="MS Reference Sans Serif" size="5" color="#186D92"><br>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    Administrator</font></strong>
+  </div>
+  <div class="main">
+    <hr class="h"></hr>
+    <div class="menu">
+      <table class='menu_table'>
+        <tr>
+          <td id="left">
+            <div id="menu">
+                <%= render :partial => 'table_title' %>
+            
+    <li><%= link_to_function "Table Operations", "Element.toggle('table_operations_id')" %></li>
+        <div id="table_operations_id" style="display:none; background-color:#F8F8FF;">
+            <%= link_to_remote "Create Table", :update => "right" , :url => { :action => "create_table_show"} %></br>
+            <%= link_to_remote "Drop Table", :update => "right" , :method => 'GET', :url => {:action => "drop_table"} %></br>
+            <%= link_to_remote "Alter Table", :update => "right" , :url => {:action => "alter_table_show"} %></br>
+            <%= link_to_remote "Insert Data", :update => "right" , :url => {:action => "insert_data_show"} %></br>
+            <%= link_to_remote "Import Data...", :update => "right" , :url => {:action => "import_data_show"} %></br>
+            <%= link_to_remote "Delete Data", :update => "right" , :url => {:action => "delete_data_show"} %></br>
+            <%= link_to_remote "Alter Data", :update => "right" , :url => {:action => "alter_data_show"} %></br>
+        </div>            
+    <li><%= link_to_remote "Query", :update => "right" , :url => { :action => "query_show"} %></li>
+    <li><%= link_to_remote "SQL Query", :update => "right" , :url => {:action => "sql_query_show"} %></li>
+    <li><%= link_to_remote "Other Databases", :update => "other_databases_id" , :url => { :action => "other_databases_show"} %></li>
+      <div id="other_databases_id"></div>
+    <li><%= link_to "Log out", :action => "log_out" %></li>
+   </div>
+  </td>
+</tr></table>
+    </div>
+    <div class="center">&nbsp;</div>
+    <div class="contents"><div id="right">
+    <br />
+    <table class="list">
+      <tr><th>current_database</th><td><%= @database %></td></tr>
+      <tr><th>current_user</th><td><%= @current_user %></td></tr>
+</table> 
+</div>
+  </div>
+  <div class="footer">
+    <hr class="h"></hr>
+    <div align=right style="padding-right:1em;">Created By Vivian 2009</div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<br />
+<div id="condition_area">
+<div id='table_name_id'>
+<b>Table Name:</b> <%= select_tag "table_name" , options_for_select(@table_nms)  %>
+<%= link_to_remote "Show columns", :submit =>"table_name_id" , :update => "columns_area", :url=>{:action => "get_columns_for_table"} %>
+</div>
+<br />
+<div id="columns_area"></div>
+</div>
+<div style="font: 12px;color:#FF4500"><%= @error_message %></div>
+</div>

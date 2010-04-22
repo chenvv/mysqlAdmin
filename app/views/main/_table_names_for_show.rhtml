@@ -1,0 +1,4 @@
+<div id='table_name_id'>
+<b>Table Name:</b> <%= select_tag "table_name" , options_for_select(@table_nms_option)  %>
+<%= link_to_remote "Show columns", :submit =>"right" , :update => "columns_area", :url=>{:action => action } %>
+</div>

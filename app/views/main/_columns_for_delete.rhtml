@@ -1,0 +1,27 @@
+<div>Please input conditions below to delete!</div>
+<div>All datas will be deleted if you input nothing!</div>
+<div>※You could input the conditions with '>', '<', 'like', 'between ... and' ...('=' can be omitted!)</div>
+
+<table class="list">
+    <% select_options = "" -%>    
+    <% @column_names.each_with_index  do |name, idx|  %>
+<tr>
+
+  <td><%= name %></td>
+  <td><%= text_field_tag "value_id#{idx}" %></td> 
+</tr>
+<% select_options << "<option>#{name}</option>" -%>    
+<% end %>
+</table> 
+<table> 
+<tr>
+  <td><span>order_by:  </span></td><td><%= select_tag "order_by_column_id", "#{select_options}" %></td><td><%= select_tag "order_by_id", "<option>ASC</option><option>DESC</option>" %></td>     
+</tr>
+<tr></tr>
+<tr>
+  <td><span>limit:     </span></td><td><input id="limit_id" type="text" name = "limit_id" style="width:85px;" /></td><td></td>     
+</tr>
+</table>
+<br />
+<div><%= link_to_remote "Delete", :submit =>"right" , :confirm =>'Do you really want to delete them?', :update => "result", :url=>{:action => "delete_data", :id =>@column_names} %>
+<div id="result"></div>

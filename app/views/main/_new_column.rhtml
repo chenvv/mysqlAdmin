@@ -1,0 +1,26 @@
+<td>
+    <%=  text_field_tag "column_name#{line_no}" %>
+    </td>
+    <td>
+    <%= select_tag "datatype#{line_no}", "<option>VARCHAR</option><option>DECIMAL</option><option>DATE</option><option>INT</option>
+    <option>TEXT</option><option>TIMESTAMP</option><option>ENUM</option>" %>
+
+    </td>
+    <td>
+    <%= text_field_tag "length#{line_no}" , '',  :size => 7 %>
+    </td>
+    <td>
+    <%= check_box_tag "not_null#{line_no}" %>
+    </td>
+    <td>
+    <%= check_box_tag "auto_inc#{line_no}" %>
+    </td>     
+    <td>
+    <%= text_field_tag "default_value#{line_no}" %>
+    </td>
+    <td>
+    <%= check_box_tag "primary#{line_no}" %>
+    </td>           
+    <td>
+    <%= check_box_tag "foreign_key#{line_no}" %>Ref. Table:<%= text_field_tag "ref_table#{line_no}" %>
+    </td>    

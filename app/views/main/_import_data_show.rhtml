@@ -1,0 +1,32 @@
+<br />
+<div id='table_name_id'>
+<table>    
+    <tr>
+        <td><b>Table Name:</b></td>
+        <td> <%= select_tag "table_name" , options_for_select(@table_nms_option)  %></td>
+    </tr>
+    <tr>
+        <td><b>Data File Name:</b></td><td><%= text_field_tag "file_name", '', {:size => 60} %></b></td>
+    </tr>
+</table>
+<table>
+    <tr>
+         <td>※Please input file name with full path!</td>
+    </tr>    
+    <tr>
+        <td>※Please input "\\" instead of "\" when you input the separator!</td>
+    </tr>    
+    <tr>
+        <td>※The file's record should be terminated by return and fileds should be terminated by ',' !</td>
+    </tr>
+    <tr>&nbsp;</tr>    
+    <tr>
+        <td><%= link_to_remote "import", :submit =>"right" , :update => "result", :url=>{:action => "import_data"} %></td>
+    </tr>
+</table>
+</div>
+<br />
+
+<div id="result"></div>
+</div>
+<div style="font: 12px;color:#FF4500"><%= @error_message %></div>

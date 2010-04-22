@@ -1,0 +1,29 @@
+<br />
+<div id="condition_area">
+<div id='table_name_id'>
+<b>Table Name:</b> <%= select_tag "table_name" , options_for_select(@table_nms_option)  %>
+<br />
+<br />
+<div>※Alterations:
+<table class="list">
+<tr>    
+<td><%= select_tag "option1" , "<option>ADD</option><option>ALTER</option><option>MODIFY</option><option>DROP</option>"  %></td>
+<td><%= select_tag "option2" , "<option>COLUMN</option><option>INDEX</option><option>PRIMARY KEY</option><option>UNIQUE</option><option>FOREIGN KEY</option>"  %></td>
+<td><input id="addition1" name="addition1" type="text" style="width:200px"  />※１</td>
+<td><input id="addition2" name="addition2" type="text" style="width:400px"  />※２</td>
+</tr>
+</table>
+<br />
+<div>
+※１:column_name ... etc.
+<br />
+※２:column_type, reference_definition ... etc.
+</div>    
+<br />
+<%= link_to_remote "Alter", :submit =>"right" , :update => "result", :url=>{:action => "alter_table"} %>
+</div>
+<br />
+<div id="result"></div>
+</div>
+<div style="font: 12px;color:#FF4500"><%= @error_message %></div>
+</div>

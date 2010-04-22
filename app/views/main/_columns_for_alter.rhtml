@@ -1,0 +1,32 @@
+<div>Please check the columns and input the data and the conditions(if necessary) below to alter!</div>
+<div>※You could input the conditions with '>', '<', 'like', 'between ... and' ...('=' can be omitted!)</div>
+<table class="list">
+    <% select_options = "" -%>    
+<tr>
+  <th>&nbsp;</th>    
+  <th>new_value</th>    
+  <th>&nbsp;</th>    
+  <th>conditions</th>    
+</tr>        
+    <% @column_names.each_with_index  do |name, idx|  %>
+<tr>
+  <td><%= name %></td>
+  <td><%= text_field_tag "value_id#{idx}" %></td> 
+  <td><%= name %></td>
+  <td><%= text_field_tag "condition_id#{idx}", '', {:size => 50}  %></td> 
+</tr>
+<% select_options << "<option>#{name}</option>" -%>    
+<% end %>
+</table> 
+<table> 
+<tr>
+  <td><span>order_by:  </span></td><td><%= select_tag "order_by_column_id", "#{select_options}" %></td><td><%= select_tag "order_by_id", "<option>ASC</option><option>DESC</option>" %></td>     
+</tr>
+<tr></tr>
+<tr>
+  <td><span>limit:     </span></td><td><input id="limit_id" type="text" name = "limit_id" style="width:85px;" /></td><td></td>     
+</tr>
+</table>
+<br />
+<div><%= link_to_remote "Alter", :submit =>"right" , :update => "result", :url=>{:action => "alter_data", :id => @column_names} %>
+<div id="result"></div>

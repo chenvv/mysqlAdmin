@@ -1,0 +1,8 @@
+<h4>Please input your query down:</h4>
+<div id = "query_area" padding=5px;><%= text_area_tag 'query_sql', nil, :rows=> 5, :cols => 100 %></div>
+
+<br />
+<div align="left" ><%= link_to_remote 'query', :submit => 'query_area', :method => 'GET', :update => "query_result", :url =>{ :action => 'sql_query' } %></div>
+</br>
+<div><strong>[Result:]</strong></div>
+<br /><div id="query_result"></div> 

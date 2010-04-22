@@ -1,0 +1,58 @@
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" bgcolor="#F9F9F9">
+<div align="center">
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="100%">
+
+  <tr>
+   <td align="center">
+    <div align="center">
+     <table border="1" width="500" cellspacing="0" cellpadding="0" bordercolor="#808080" style="border-collapse: collapse" height="300" bgcolor="#DDDDDD">
+
+      <tr>
+       <td height="80" bgcolor="#FFFFFF"><b><font face="MS Reference Sans Serif" size="5" color="#186D92">My</font><font face="MS Reference Sans Serif" size="5" color="#FF9900">SQL</font>
+       <font face="MS Reference Sans Serif" size="5" color="#186D92"><br>      Administrator</font></b></td>
+      </tr>
+      <tr>
+       <td height="200" align="center">
+      
+       <table id="connect_info" border="0" width="90%" height="90%" cellpadding="0" style="border-style:solid; border-collapse: collapse; padding: 0" bordercolor="#808080">
+        <%= form_tag "/main/top" %>
+        <tr>
+         <td  align="right">Server Host:</td>
+         <td><%= text_field_tag 'host', 'localhost', :class=> "text_filed1" %></td>
+         <td  align="right">Port:</td>
+         <td><%= text_field_tag 'port', "3306", :class=>"short_text" %></td>
+
+        </tr>
+        <tr>
+         <td  align="right">Database:</td>
+         <td><%= text_field_tag 'database', params[:database], :class=> "text_filed1" %></td>
+        </tr>
+        <tr>
+         <td  align="right">Username:</td>
+         <td><%= text_field_tag 'username', params[:username], :class=> "text_filed1" %></td>
+        </tr>
+        <tr>
+         <td  align="right">Password:</td>
+         <td><input id="password" type="password" name="password" style="width:200px"/></td>
+        </tr>
+
+       </table>
+       </td>
+      </tr>
+      <tr>
+      <td align="center"> <%= submit_tag "connect"%> <%= end_form_tag %></td>
+
+      </tr>
+     </table>
+     <table width="500" cellspacing="0" cellpadding="0" style="border-collapse: collapse">
+      <tr><td style="background:#FFFFFF;border:0px"><div><%= @error_message %>
+</div></td></tr>
+     </table>
+    </div>
+   </td>
+  </tr>
+ 
+</table>
+
+</div>
+</body>

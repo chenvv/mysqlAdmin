@@ -1,0 +1,6 @@
+<div id = "table_erea" ><%= link_to_remote "#{image_tag('add.gif')}",
+     :update => 'table_erea', :method => 'GET',
+     :loading => "Element.update('table_erea', '#{loading_view}')",
+     :url => { 
+               :action     => 'get_table_name_list',
+               :record_id  => 'table_erea' } %>&nbsp;TABLES</div>

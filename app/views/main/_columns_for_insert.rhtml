@@ -1,0 +1,13 @@
+<div>Please input datas below to insert!</div>
+
+<table class="list">
+    <% @column_names.each_with_index  do |name, idx|  %>
+<tr>
+  <td><%= name %></td>
+  <td><%= text_field_tag "value_id#{idx}" %></td> 
+</tr>
+<% end %>
+</table> 
+<br />
+<div><%= link_to_remote "Insert", :submit =>"right" , :update => "result", :url=>{:action => "insert_data", :id => @column_names.join(':')} %>
+<div id="result"></div> 

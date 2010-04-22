@@ -1,0 +1,13 @@
+<div id = "Delete">
+<br />
+    <div id='drop_table'>
+    <b>Table Name:</b> <%= select_tag "table_name" , options_for_select(@table_nms_option)  %>
+    <br />
+    <br />
+      <%= link_to_remote "Drop", :confirm => "You really want to drop it?" ,:update=> "result", :submit => "drop_table", :url=>{:action => "drop_table"} %>
+    <br />
+    <br />
+    </div>
+    <div id="result"></div>
+</div>
+<div style="font: 12px;color:#FF4500"><%= @error_message %></div>

@@ -1,0 +1,12 @@
+<div id = "table_erea" ><%= link_to_remote "#{image_tag('sub.gif')}",
+                             :update => 'table_erea', :method => 'GET',
+                             :loading => "Element.update('table_erea', '#{loading_view}')",
+                             :url => { 
+                                       :action     => 'table_title',
+                                       :record_id  => 'table_erea' } %>&nbsp;TABLES<br />
+<div id="table_list" style="background-color:#F8F8FF;">
+<% (@table_nms||[]).each do |tb_nm| %>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to_remote(tb_nm, :update =>"right", :method => 'GET', :loading => "Element.update('right', '#{loading_view}')", :url => {:action => "table_show", :table_nm => tb_nm}) %></br>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,38 @@
+<div>※Please choose the columns you want to view and input the conditions if needed ! </div>
+<div>(You may input the conditions beginning with "="(can be omitted), ">", "<", "like", "between ... and" ...) </div>
+<br />
+<div>
+    <% names = [] -%>    
+<table class="list">
+    <% @column_names.each_with_index  do |name, idx|  %>
+<tr>
+  <td><%= check_box_tag "check_box_id#{idx}", "1", false, :class => 'columns_check' %></td>
+  <td><%= name %></td>
+  <td><input id=<%= "option_id#{idx}" %> type="text" name=<%= "option_id#{idx}" %> style="width:250px;" /></td
+> 
+</tr>
+<% names << name -%>    
+<% end %>
+</table>
+
+<table> 
+<tr>
+  <td><%= check_box_tag "check_all", "1", false, {:onclick => "if(this.checked==true) { checkAll('columns_check', true); } else { checkAll('columns_check', false); };" } %>Check All</td>
+</tr>          
+<tr>
+  <td>&nbsp;</td>
+</tr>          
+<tr>
+  <td><span>order_by:  </span></td><td><%= select_tag "order_by_column_id", options_for_select(names) %></td><td><%= select_tag "order_by_id", "<option>ASC</option><option>DESC</option>" %></td>     
+</tr>
+<tr></tr>
+<tr>
+  <td><span>limit:     </span></td><td><input id="limit_id" type="text" name = "limit_id" style="width:85px;" /></td><td></td>     
+</tr>
+</table>
+</div> 
+<br />
+<div><%= link_to_remote "Query", :submit =>"right" , :method => 'GET', :update => "query_result", :url=>{:action => "query", :id=> @column_names.join(':')} %> 
+<br />
+<br />
+<div id="query_result"><div>

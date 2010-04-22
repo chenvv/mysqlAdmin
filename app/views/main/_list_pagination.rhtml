@@ -1,0 +1,6 @@
+<%
+  search_action = (params[:action] == 'detail_search') ? 'detail_search' : 'search'
+%>
+<%= pagination_links_for_list_with_ajax @table_contents, {:update => 'view',
+                                                        :url => { :action => 'search',
+                                                                  :params => params[:table_nm] }} %>
